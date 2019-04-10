@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private SimpleWorker worker;
+    private Worker worker;
     private TextView txtMsg;
     private Handler handler = new Handler(Looper.getMainLooper()){
         @Override
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         txtMsg= findViewById(R.id.textviewMsg);
-        worker= new SimpleWorker();
+        worker= new Worker("Handler Thread");
         worker.execute(new Runnable() {
             @Override
             public void run() {
